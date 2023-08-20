@@ -8,6 +8,7 @@ const {
   USER_PASSWORD,
   REPO_REF,
   DEPLOY_PATH,
+  KEY,
 } = dotenv.parsed;
 
 const { JWT_SECRET, DATABASE_HOST } = process.env;
@@ -28,6 +29,7 @@ module.exports = {
     production: {
       user: DEPLOY_USER,
       host: DEPLOY_HOST,
+      key: KEY,
       user_password: USER_PASSWORD,
       repo: REPO_URL,
       ref: REPO_REF,
