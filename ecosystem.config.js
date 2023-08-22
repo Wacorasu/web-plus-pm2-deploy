@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').config({ path: '.env.deploy' });
+// const dotenv = require('dotenv').config({ path: '.env.deploy' });
 
 const {
   DEPLOY_HOST,
@@ -7,7 +7,7 @@ const {
   REPO_REF,
   DEPLOY_PATH,
   NPM,
-} = dotenv.parsed;
+} = process.env;
 
 const { JWT_SECRET, DATABASE_HOST } = process.env;
 
