@@ -6,7 +6,7 @@ const {
   DEPLOY_USER,
   REPO_REF,
   DEPLOY_PATH,
-  KEY,
+  NPM,
 } = dotenv.parsed;
 
 const { JWT_SECRET, DATABASE_HOST } = process.env;
@@ -30,9 +30,8 @@ module.exports = {
       repo: REPO_URL,
       ref: REPO_REF,
       path: DEPLOY_PATH,
-      key: KEY,
       'pre-deploy-local': `scp -C ./.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/source`,
-      'post-deploy': 'cd source && npm install && npm run build',
+      'post-deploy': NPM,
     },
   },
 };
