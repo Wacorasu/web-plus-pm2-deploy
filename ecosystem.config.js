@@ -32,7 +32,7 @@ module.exports = {
       path: DEPLOY_PATH,
       key: KEY,
       'pre-deploy-local': `scp -C ./.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/source`,
-      'post-deploy': 'npm install && npm run build',
+      'post-deploy': 'cd source && npm install && npm run build',
     },
   },
 };
