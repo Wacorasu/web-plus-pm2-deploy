@@ -6,7 +6,6 @@ const {
   DEPLOY_USER,
   REPO_REF,
   DEPLOY_PATH,
-  NPM,
 } = dotenv.parsed;
 
 const { JWT_SECRET, DATABASE_HOST } = process.env;
@@ -31,7 +30,7 @@ module.exports = {
       ref: REPO_REF,
       path: DEPLOY_PATH,
       'pre-deploy-local': `scp -C ./.env ./.env.deploy ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/source`,
-      'post-deploy': NPM,
+      'post-deploy': 'npm i && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
 };
