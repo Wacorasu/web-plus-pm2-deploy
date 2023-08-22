@@ -1,4 +1,4 @@
-// const dotenv = require('dotenv').config({ path: '.env.deploy' });
+const dotenv = require('dotenv').config({ path: '.env.deploy' });
 
 const {
   DEPLOY_HOST,
@@ -7,7 +7,7 @@ const {
   REPO_REF,
   DEPLOY_PATH,
   NPM,
-} = process.env;
+} = dotenv.parsed;
 
 const { JWT_SECRET, DATABASE_HOST } = process.env;
 
@@ -30,7 +30,7 @@ module.exports = {
       repo: REPO_URL,
       ref: REPO_REF,
       path: DEPLOY_PATH,
-      'pre-deploy-local': `scp -C ./.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/source`,
+      'pre-deploy-local': `scp -C ./.env ./.env.deploy ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/source`,
       'post-deploy': NPM,
     },
   },
