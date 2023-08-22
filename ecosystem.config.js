@@ -8,7 +8,7 @@ const {
   DEPLOY_PATH,
 } = dotenv.parsed;
 
-const { API_URL } = process.env;
+const { REACT_APP_API_URL } = process.env;
 
 module.exports = {
   apps: [
@@ -17,7 +17,7 @@ module.exports = {
       script: './build/app.js',
       env_production: {
         NODE_ENV: 'production',
-        API_URL,
+        REACT_APP_API_URL,
       },
     },
   ],
