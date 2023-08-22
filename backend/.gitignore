@@ -15,3 +15,8 @@ node_modules
 dist
 .env
 .env.deploy
+
+
+.flaskenv*
+!.env.project
+!.env.vault
