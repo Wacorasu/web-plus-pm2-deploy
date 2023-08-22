@@ -16,7 +16,7 @@ dist
 .env
 .env.deploy
 
-.env*
+
 .flaskenv*
 !.env.project
 !.env.vault
